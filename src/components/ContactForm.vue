@@ -62,7 +62,6 @@ export default {
   data() {
     const schema = yup.object().shape({
       name: yup.string().required("Tên phải có giá trị.").min(2).max(50),
-      // Thêm validation cho nghề nghiệp
       job: yup.string().max(100, "Nghề nghiệp không được vượt quá 100 ký tự."),
     });
 
@@ -75,7 +74,6 @@ export default {
     submitContact(values) {
       console.log("📤 Gửi dữ liệu form:", values);
       
-      // Dữ liệu job được lấy trực tiếp từ 'values' do đã là Field
       this.$emit("submit:contact", {
         ...this.contact,
         ...values,
